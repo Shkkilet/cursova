@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="cursova.EditTripPage"
+              xmlns:ejl="clr-namespace:HybridWebView;assembly=HybridWebView"
+             Title="EditTripPage">
+    <ScrollView>
+        <VerticalStackLayout Padding="10">
+
+            <Entry x:Name="tripName" Placeholder="Назва"/>
+            <Entry x:Name="tripDescription" Placeholder="Опис"/>
+
+            <HorizontalStackLayout Padding="10,0">
+                <Label Text="Дата початку:" VerticalOptions="Center"/>
+                <DatePicker x:Name="startDatePicker"
+                            HorizontalOptions="FillAndExpand"/>
+            </HorizontalStackLayout>
+
+            <Entry IsReadOnly="True" x:Name="startEntry" Placeholder="Start (lat,lon)" />
+            <Entry IsReadOnly="True" x:Name="endEntry" Placeholder="End (lat,lon)" />
+            <Button Text="Показати карту" Clicked="OnToggleMapClicked" x:Name="toggleMapButton"/>
+            <Grid x:Name="MapContainer"  IsVisible="false" HeightRequest="300">
+                <ejl:HybridWebView x:Name="hybridView"
+                  HybridAssetRoot="hybrid_root"
+                  MainFile="map.html"/>
+            </Grid>
+            <Picker x:Name="tripTypePicker" Title="Тип подорожі"/>
+
+            <Button Text="Зберегти зміни" 
+                    Margin="0,15,0,0"
+                    Clicked="OnSaveClicked" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

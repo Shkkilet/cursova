@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="cursova.CreateUserPage"
+             Title="Create User">
+    <VerticalStackLayout Padding="20" Spacing="15">
+
+        <Label Text="Enter name:" />
+        <Entry x:Name="NameEntry"
+               Placeholder="User name" />
+
+        <Label Text="Enter surname:" />
+        <Entry x:Name="SurnameEntry"
+               Placeholder="User surname" />
+
+        <Label Text="Enter email:" />
+        <Entry x:Name="EmailEntry"
+               Placeholder="User email" 
+               Keyboard="Email" />
+
+        <Label Text="Enter password:" />
+        <Entry x:Name="PasswordEntry"
+               Placeholder="Password"
+               IsPassword="True" />
+
+        <Label Text="Confirm password:" />
+        <Entry x:Name="ConfirmPasswordEntry"
+               Placeholder="Confirm password"
+               IsPassword="True" />
+
+        <Button Text="Create User"
+                Clicked="OnCreateUserClicked" />
+
+        <Label x:Name="StatusLabel"
+               TextColor="Green"
+               Margin="0,10,0,0"/>
+
+    </VerticalStackLayout>
+</ContentPage>

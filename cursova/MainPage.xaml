@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ejl="clr-namespace:HybridWebView;assembly=HybridWebView"
+             x:Class="cursova.MainPage">
+
+    <VerticalStackLayout>
+        <Button Text="Створити подорож"
+                WidthRequest="200"
+                Clicked="OnCreateTripClicked"
+              />
+
+        <Button Text="Мої подорожі"
+                                WidthRequest="200"
+                 Margin="0,10,0,0"
+                Clicked="OnGetTripsClicked"
+              />
+    </VerticalStackLayout>
+
+</ContentPage>

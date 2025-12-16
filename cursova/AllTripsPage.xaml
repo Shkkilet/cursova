@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="cursova.AllTripsPage"
+             >
+    <VerticalStackLayout Padding="10">
+
+        <Label Text="Список подорожей"
+               FontAttributes="Bold"
+               FontSize="20"
+               HorizontalOptions="Center"/>
+
+        <CollectionView x:Name="tripsCollection"
+                Margin="0,10,0,0"
+                SelectionMode="Single"
+                SelectionChanged="OnTripSelected">
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame BorderColor="Gray"
+                           CornerRadius="10"
+                           Padding="10"
+                           Margin="10 ,5">
+
+                        <Grid ColumnDefinitions="*, Auto, Auto" RowDefinitions="Auto">
+
+                            <VerticalStackLayout Grid.Column="0">
+                                <Label Text="{Binding Name}"
+                                       FontAttributes="Bold"
+                                       FontSize="18" />
+
+                                <Label Text="{Binding Description}"
+                                       FontSize="14"
+                                       TextColor="Gray" />
+
+                                <Label Text="{Binding StartDate, StringFormat='Дата: {0:yyyy-MM-dd}'}"
+                                       FontSize="12" />
+
+                                <Label Text="{Binding Type}"
+                                       FontSize="12"
+                                       TextColor="DarkGreen" />
+                            </VerticalStackLayout>
+
+                            <CheckBox Grid.Column="1"
+                                      IsChecked="{Binding IsDone}"
+                                      CheckedChanged="OnIsDoneCheckedChanged"
+                                      VerticalOptions="Center"
+                                      HorizontalOptions="Center"
+                                      Margin="10,0"/>
+
+                            <ImageButton Grid.Column="2"
+                                         Source="delete.png"
+                                         WidthRequest="28"
+                                         HeightRequest="28"
+                                         BackgroundColor="Transparent"
+                                         CommandParameter="{Binding Id}"
+                                         Clicked="OnDeleteClicked"
+                                         VerticalOptions="Center" />
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+
+        </CollectionView>
+
+
+    </VerticalStackLayout>
+</ContentPage>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="cursova.CreateTripPage"
+                          xmlns:ejl="clr-namespace:HybridWebView;assembly=HybridWebView"
+             Title="CreateTripPage">
+    <ScrollView>
+    <VerticalStackLayout>
+            <Entry x:Name="tripName" Placeholder="Назва"/>
+            <Entry x:Name="tripDescription" Placeholder="Опис"/>
+
+            <HorizontalStackLayout Padding="10">
+                <Label Text="Дата початку:" VerticalOptions="Center"/>
+                <DatePicker x:Name="startDatePicker"
+                            HorizontalOptions="FillAndExpand"/>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout Padding="10">
+                <Label Text="Тип поїздки:" VerticalOptions="Center"/>
+                <Picker x:Name="tripTypePicker"
+                    Title="Виберіть тип"
+                    HorizontalOptions="FillAndExpand"/>
+            </HorizontalStackLayout>
+            <Entry x:Name="startEntry" Placeholder="Start (lat,lon)" HorizontalOptions="FillAndExpand"/>
+            <Entry x:Name="endEntry" Placeholder="End (lat,lon)" HorizontalOptions="FillAndExpand"  />
+        
+        <Button Text="Показати карту" Clicked="OnToggleMapClicked" x:Name="toggleMapButton"/>
+        <Grid x:Name="MapContainer"  IsVisible="false" HeightRequest="300">
+            <ejl:HybridWebView x:Name="hybridView"
+                         HybridAssetRoot="hybrid_root"
+                         MainFile="map.html"/>
+        </Grid>
+        <Button Margin="0,10,0,0" Text="Побудувати маршрут з полів" Clicked="OnBuildRouteClicked" />
+      
+    </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
